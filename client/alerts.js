@@ -21,7 +21,7 @@ Alerts = {
         fadeIn: 200,
 		
         // If autoHide enabled then fadeOut is time in ms before alert disappears 
-        fadeOut: 5000,
+        fadeOut: 8000,
 		
         // Maximum amount of alerts displayed at once
         alertsLimit : 3,
@@ -36,8 +36,9 @@ Alerts = {
     // options (Object) Options if required to override some of default ones.
     // See Alerts.defaultOptions for all values.
 	 
-    add: function (message, mode) {
+    add: function (message, mode, skip) {
         mode = mode || 'danger';
+        skip = skip || false;
         var options = Alerts.Options;
 
         // Handle alertsLimit
@@ -51,12 +52,12 @@ Alerts = {
                     Alerts.collection.remove(row._id);
                 });
         }
-        Alerts.collection.insert({message: message, mode: mode, options: options, seen: false, created: +new Date()});
+        Alerts.collection.insert({message: message, mode: mode, options: options, seen: false, skip: skip, created: +new Date()});
     },
 
     // Clear seen errors, useful after page navigation
     clear: function () {
-        Alerts.collection.remove({ seen: true });
+        Alerts.collection.remove({ seen: true, skip: false });
     },
 
 	// Remove specific error

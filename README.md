@@ -33,7 +33,7 @@ Options: {
 # Adding Alerts
 
 ```
-  Alert.add(msg, type);
+  Alert.add(msg, type, skip);
 
 ```
 
@@ -41,6 +41,7 @@ Types: success, info, warning, danger
 
 msg can be text or an Error object.  If Error object it will display Error.reason
 
+skip: true if you want to show message after redirect
 # Clearing Alerts
 
 ```
