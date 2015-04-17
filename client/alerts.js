@@ -71,13 +71,13 @@ Alerts = {
 Meteor.startup(function () {
     if (typeof Iron !== 'undefined' && typeof Router !== 'undefined') {
         Router.onBeforeAction(function () {
-            Alerts.collection.clear();
+            Alerts.clear();
             this.next();
         });
     }
     if (typeof FlowRouter !== 'undefined') {
         FlowRouter.middleware(function (path, next) {
-            Alerts.collection.clear();
+            Alerts.clear();
             next();
         });
     }
