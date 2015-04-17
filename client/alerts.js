@@ -15,7 +15,7 @@ Alerts = {
         classes: '',
 		
         // Hide alert after delay in ms or false
-        autoHide: true
+        autoHide: true,
 		
         // Time in ms before alert fully appears
         fadeIn: 200,
@@ -64,7 +64,7 @@ Alerts = {
         Alerts.collection.remove(id);
     },
 
-    collection = new Meteor.Collection(null)
+    collection: new Meteor.Collection(null)
 };
 
 // Clear message after router navigation IronRouter/FlowRouter

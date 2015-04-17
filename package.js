@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'bootstrap-alerts',
+  name: 'voidale:bootstrap-alerts',
   version: '0.1.0',
   summary: 'Bootstrap styled alerts with halflings',
   git: 'https://github.com/voidale/bootstrap-alerts.git',
@@ -7,7 +7,8 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  
+  api.versionsFrom('1.1.0.2');  
+
   api.use(['templating'], 'client');
 
   //js
