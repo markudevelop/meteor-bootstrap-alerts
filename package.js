@@ -1,6 +1,6 @@
 Package.describe({
   name: 'voidale:bootstrap-alerts',
-  version: '0.1.2',
+  version: '0.1.4',
   summary: 'Bootstrap styled alerts with halflings',
   git: 'https://github.com/voidale/bootstrap-alerts.git',
   documentation: 'README.md'
@@ -14,7 +14,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/alerts.js',
     'client/alerts-template.html',
-    'client/alerts-template.js'
+    'client/alerts-template.js',
+    'client/alerts-template.css'
   ], 'client');
   
   api.export('Alerts', ['client']);
