@@ -1,6 +1,6 @@
-# bootstrap-alerts
+# Simple Practical Bootstrap 3 Alerts
 
-Display alerts using bootstrap 3 styling and Halflings icons. Auto cleared with IronRouter/FlowRouter on navigation.
+Display alerts using bootstrap 3 styling and Halflings icons
 
 # Dependencies
 
@@ -17,38 +17,60 @@ meteor add voidale:bootstrap-alerts
 # Options 
 
 ```
-Options: {
-
+     // Default options. Can be overwritten
+    Options: {
+        // Show Halflings or Font Awesome (Soon)
         showIcons: true,
+		
+		// Position 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'
+		position: 'bottom-center', 
+		
+		// Alert width
+		alertWidth: '250px',
+		
+        // Button with cross icon to hide (close) alert
         dismissable: true,
+		
+        // CSS classes to be appended on each alert DIV (use space for separator)
         classes: '',
-        autoHide: false,
+		
+        // Hide alert after delay in ms or false
+        autoHide: true,
+		
+        // Time in ms before alert fully appears
         fadeIn: 200,
-        fadeOut: 600,
-        alertsLimit : 5,
-        html: false
+		
+        // If autoHide enabled then fadeOut is time in ms before alert disappears 
+        fadeOut: 8000,
+		
+        // Maximum amount of alerts displayed at once
+        alertsLimit : 3,
+		
+		// Clear alerts on page navigation
+		clearRouter: true
     }
 ```
 
 # Adding Alerts
 
 ```
-  Alert.add(msg, type, skip);
-
+  Alerts.type(msg, options, skip);
 ```
 
-Types: success, info, warning, danger
+type: success, info, warning, danger.
 
-msg can be text or an Error object.  If Error object it will display Error.reason
+options: overwrite options for alert.
 
-skip: true if you want to show message after redirect
+skip: true if you want to show message after redirect.
+
 # Clearing Alerts
 
 ```
-  Alerts.clear()
+  Alerts.clearAll()
+  Alerts.clear(id)
 ```
 
-# Handlebars
+# Alerts template
 
 ```
  {{> alerts}}

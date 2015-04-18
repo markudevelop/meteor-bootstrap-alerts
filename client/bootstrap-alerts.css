@@ -1,0 +1,47 @@
+.bootstrap-alerts {
+  position: fixed;
+  z-index: 10000;
+  padding: 10px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.bootstrap-alerts.bs-alerts-top {
+  top: 0;
+}
+
+.bootstrap-alerts.bs-alerts-bottom {
+  bottom: 0; 
+}
+
+.bootstrap-alert {
+  width: 250px;
+  clear: both;
+  margin-bottom: 5px;
+  pointer-events: auto;
+}
+
+.bs-alert-top-left {
+  float: left;
+}
+
+.bs-alert-top-center {
+  margin: 0 auto;
+}
+
+.bs-alert-top-right {
+  float: right;
+}
+
+.bs-alert-bottom-left {
+  float: left;
+}
+
+.bs-alert-bottom-center {
+  margin: 0 auto;
+}
+
+.bs-alert-bottom-right {
+  float: right;
+}
