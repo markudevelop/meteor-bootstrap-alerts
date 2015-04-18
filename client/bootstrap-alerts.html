@@ -1,4 +1,4 @@
-<template name="bootstrap-alerts">  
+<template name="bootstrapAlerts">  
   <div class="bootstrap-alerts {{topOrBottom}}">   
     {{#each alerts}}     
       {{>alert}}   
@@ -6,7 +6,7 @@
   </div> 
 </template>
 
-<template name="bootstrap-alert"> 
+<template name="bootstrapAlert"> 
   <div class="bootstrap-alert alert alert-{{mode}} {{#if options.dismissable}}alert-dismissable{{/if}} hide bs-alert-{{options.position}} {{options.classes}}">
     {{#if options.dismissable}}
     <!--suppress CheckDtdReferences -->

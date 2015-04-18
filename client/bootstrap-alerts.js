@@ -1,10 +1,10 @@
-Template.bootstrap-alerts.helpers({
+Template.bootstrapAlerts.helpers({
   alerts: function () {
     return Alerts.collection.find();
   },
 });
 
-Template.bootstrap-alert.onRendered(function () {
+Template.bootstrapAlert.onRendered(function () {
   var alert = this.data;
   var $node = $(this.firstNode);
   
@@ -27,7 +27,7 @@ Template.bootstrap-alert.onRendered(function () {
 });
 
 // Show icons
-Template.bootstrap-alert.helpers({
+Template.bootstrapAlert.helpers({
   alertImage: function(){
     var m = this.mode;
     switch (m)

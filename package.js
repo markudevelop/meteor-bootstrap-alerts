@@ -1,6 +1,6 @@
 Package.describe({
   name: 'voidale:bootstrap-alerts',
-  version: '0.1.8',
+  version: '0.1.9',
   summary: 'Bootstrap styled alerts with halflings',
   git: 'https://github.com/voidale/bootstrap-alerts.git',
   documentation: 'README.md'
