@@ -2,6 +2,16 @@
 
 Display alerts using bootstrap 3 styling and Halflings icons
 
+# Demo
+
+````
+bootstrap-alerts-voidale.meteor.com
+show alerts:
+Alerts.success('test'); <-- browser console
+over write options for test:
+Alerts.Options.autoHide = false; etc...
+````
+
 # Dependencies
 
 the latest bootstrap package
@@ -54,14 +64,12 @@ meteor add voidale:bootstrap-alerts
 # Adding Alerts
 
 ```
-  Alerts.type(msg, options, skip);
+  Alerts.type(msg, skip, options);
 ```
 
 type: success, info, warning, danger.
-
-options: overwrite options for alert.
-
 skip: true if you want to show message after redirect.
+options: overwrite options for alert.
 
 # Clearing Alerts
 
@@ -73,7 +81,7 @@ skip: true if you want to show message after redirect.
 # Alerts template
 
 ```
- {{> alerts}}
+ {{> bootstrapAlerts}}
 ```
 
 # License

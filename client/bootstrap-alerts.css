@@ -27,7 +27,7 @@
 }
 
 .bs-alert-top-center {
-  margin: 0 auto;
+  margin: 0 auto 5px;
 }
 
 .bs-alert-top-right {
@@ -39,7 +39,7 @@
 }
 
 .bs-alert-bottom-center {
-  margin: 0 auto;
+  margin: 0 auto 5px;
 }
 
 .bs-alert-bottom-right {

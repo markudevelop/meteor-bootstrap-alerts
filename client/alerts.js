@@ -36,19 +36,19 @@ Alerts = {
 		clearRouter: true
     },
 	
-	info: function (msg, options, skip) {
+	info: function (msg, skip, options) {
 	  addAlert(msg, 'info', options, skip);
 	},
 	
-	error: function (msg, options, skip) {
+	error: function (msg, skip, options) {
 	  addAlert(msg, 'danger', options, skip);
 	},
 	
-	success: function (msg, options, skip) {
+	success: function (msg, skip, options) {
 	  addAlert(msg, 'success', options, skip);
 	},
 	
-	warning: function (msg, options, skip) {
+	warning: function (msg, skip, options) {
 	  addAlert(msg, 'warning', options, skip);
 	},
 	
@@ -90,7 +90,7 @@ var addAlert = function (msg, type, options, skip) {
   }
   Alerts.collection.insert({
     message: msg,
-    mode: mode,
+    type: type,
     options: options,
     seen: false,
     skip: skip,

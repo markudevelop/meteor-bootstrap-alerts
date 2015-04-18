@@ -1,13 +1,13 @@
 <template name="bootstrapAlerts">  
   <div class="bootstrap-alerts {{topOrBottom}}">   
     {{#each alerts}}     
-      {{>alert}}   
+      {{>bootstrapAlert}}   
     {{/each}}  
   </div> 
 </template>
 
 <template name="bootstrapAlert"> 
-  <div class="bootstrap-alert alert alert-{{mode}} {{#if options.dismissable}}alert-dismissable{{/if}} hide bs-alert-{{options.position}} {{options.classes}}">
+  <div class="bootstrap-alert alert alert-{{type}} {{#if options.dismissable}}alert-dismissable{{/if}} hide bs-alert-{{options.position}} {{options.classes}}">
     {{#if options.dismissable}}
     <!--suppress CheckDtdReferences -->
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">

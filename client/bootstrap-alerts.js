@@ -2,6 +2,9 @@ Template.bootstrapAlerts.helpers({
   alerts: function () {
     return Alerts.collection.find();
   },
+  topOrBottom: function () {
+    return (Alerts.Options.position.indexOf("top") > -1) ? 'bs-alerts-top' : 'bs-alerts-bottom';
+  }
 });
 
 Template.bootstrapAlert.onRendered(function () {
@@ -19,7 +22,7 @@ Template.bootstrapAlert.onRendered(function () {
     if (alert.options.autoHide) {
       Meteor.setTimeout(function () {
         $node.fadeOut(alert.options.fadeOut, function(){
-          Alerts.removeById(alert._id);
+          Alerts.clear(alert._id);
         });
       }, alert.options.autoHide);
     }
@@ -29,7 +32,7 @@ Template.bootstrapAlert.onRendered(function () {
 // Show icons
 Template.bootstrapAlert.helpers({
   alertImage: function(){
-    var m = this.mode;
+    var m = this.type;
     switch (m)
     {
       case 'danger':
@@ -43,9 +46,6 @@ Template.bootstrapAlert.helpers({
         default:
         return {icon: 'glyphicon glyphicon-exclamation-sign', label:'Error:'};
     } 
-  },
-  topOrBottom: function () {
-    return (this.options.position.indexOf("top") > -1) ? 'bs-alerts-top' : 'bs-alerts-top';
   }
 });
 
