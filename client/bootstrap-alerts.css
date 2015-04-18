@@ -16,7 +16,7 @@
 }
 
 .bootstrap-alert {
-  width: 250px;
+  width: 100%;
   clear: both;
   margin-bottom: 5px;
   pointer-events: auto;

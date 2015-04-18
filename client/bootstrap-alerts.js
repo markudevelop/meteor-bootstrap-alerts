@@ -10,6 +10,7 @@ Template.bootstrapAlerts.helpers({
 Template.bootstrapAlert.onRendered(function () {
   var alert = this.data;
   var $node = $(this.firstNode);
+  $node.css('max-width',Alerts.Options.alertWidth);
   
   Meteor.defer(function () {
     Alerts.collection.update(alert._id, {

@@ -36,6 +36,15 @@ Alerts = {
 		clearRouter: true
     },
 	
+	// Set & Replace Default Config Values
+    config: function (configObj) {
+        if (_.isObject(configObj)) {
+            this.Options = _.extend(this.Options, configObj);
+        } else {
+            throw new Meteor.Error(400, 'Config must be an object!');
+        }
+    },
+	
 	info: function (msg, skip, options) {
 	  addAlert(msg, 'info', options, skip);
 	},
