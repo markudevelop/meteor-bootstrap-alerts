@@ -3,7 +3,10 @@ Template.bootstrapAlerts.helpers({
     return Alerts.collection.find();
   },
   topOrBottom: function () {
-    return (Alerts.Options.position.indexOf("top") > -1) ? 'bs-alerts-top' : 'bs-alerts-bottom';
+    var alert = Alerts.collection.findOne({}, {sort: {created: -1}});
+    if (alert)
+      return (alert.options.position.indexOf("top") > -1) ? 'bs-alerts-top' : 'bs-alerts-bottom';
+    return 'bs-alerts-bottom';
   }
 });
 

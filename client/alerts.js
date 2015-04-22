@@ -3,76 +3,79 @@ if (typeof Alerts === "undefined") {
 }
 
 Alerts = {
-     // Default options. Can be overwritten
-    Options: {
-        // Show Halflings or Font Awesome (Soon)
-        showIcons: true,
-		
-		// Position 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'
-		position: 'bottom-center', 
-		
-		// Alert width
-		alertWidth: '250px',
-		
-        // Button with cross icon to hide (close) alert
-        dismissable: true,
-		
-        // CSS classes to be appended on each alert DIV (use space for separator)
-        classes: '',
-		
-        // Hide alert after delay in ms or false
-        autoHide: true,
-		
-        // Time in ms before alert fully appears
-        fadeIn: 200,
-		
-        // If autoHide enabled then fadeOut is time in ms before alert disappears 
-        fadeOut: 8000,
-		
-        // Maximum amount of alerts displayed at once
-        alertsLimit : 3,
-		
-		// Clear alerts on page navigation
-		clearRouter: true
-    },
-	
-	// Set & Replace Default Config Values
-    config: function (configObj) {
-        if (_.isObject(configObj)) {
-            this.Options = _.extend(this.Options, configObj);
-        } else {
-            throw new Meteor.Error(400, 'Config must be an object!');
-        }
-    },
-	
-	info: function (msg, skip, options) {
-	  addAlert(msg, 'info', options, skip);
-	},
-	
-	error: function (msg, skip, options) {
-	  addAlert(msg, 'danger', options, skip);
-	},
-	
-	success: function (msg, skip, options) {
-	  addAlert(msg, 'success', options, skip);
-	},
-	
-	warning: function (msg, skip, options) {
-	  addAlert(msg, 'warning', options, skip);
-	},
-	
-    // Clear Seen Alerts
-    clearAll: function () {
-        Alerts.collection.remove({ seen: true, skip: false });
-    },
+  // Default options.
+  Options: {
+    // Show Halflings or Font Awesome (Soon)
+    showIcons: true,
 
-	// Remove Specific Alert
-    clear: function (id) {
-        Alerts.collection.remove(id);
-    },
+    // Position 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'
+    position: 'bottom-center',
 
-	// Client Side Collection
-    collection: new Meteor.Collection(null)
+    // Alert width
+    alertWidth: '250px',
+
+    // Button with cross icon to hide (close) alert
+    dismissable: true,
+
+    // CSS classes to be appended on each alert DIV (use space for separator)
+    classes: '',
+
+    // Hide alert after delay in ms or false
+    autoHide: true,
+
+    // Time in ms before alert fully appears
+    fadeIn: 200,
+
+    // If autoHide enabled then fadeOut is time in ms before alert disappears 
+    fadeOut: 8000,
+
+    // Maximum amount of alerts displayed at once
+    alertsLimit: 3,
+
+    // Clear alerts on page navigation
+    clearRouter: true
+  },
+
+  // Set & Replace Default Config Values
+  config: function (configObj) {
+    if (_.isObject(configObj)) {
+      this.Options = _.extend(this.Options, configObj);
+    } else {
+      throw new Meteor.Error(400, 'Config must be an object!');
+    }
+  },
+
+  info: function (msg, skip, options) {
+    addAlert(msg, 'info', options, skip);
+  },
+
+  error: function (msg, skip, options) {
+    addAlert(msg, 'danger', options, skip);
+  },
+
+  success: function (msg, skip, options) {
+    addAlert(msg, 'success', options, skip);
+  },
+
+  warning: function (msg, skip, options) {
+    addAlert(msg, 'warning', options, skip);
+  },
+
+  // Clear Seen Alerts
+  clearAll: function () {
+    Alerts.collection.remove({
+      seen: true,
+      skip: false
+    });
+  },
+
+  // Remove Specific Alert
+  clear: function (id) {
+    Alerts.collection.remove(id);
+  },
+
+  // Client Side Collection
+  collection: new Meteor.Collection(null)
 };
 
 // msg (String)
@@ -109,16 +112,16 @@ var addAlert = function (msg, type, options, skip) {
 
 // Clear messages after router navigation IronRouter/FlowRouter
 Meteor.startup(function () {
-    if (typeof Iron !== 'undefined' && typeof Router !== 'undefined' && Alerts.clearRouter) {
-        Router.onBeforeAction(function () {
-            Alerts.clearAll();
-            this.next();
-        });
-    }
-    if (typeof FlowRouter !== 'undefined' && Alerts.clearRouter) {
-        FlowRouter.middleware(function (path, next) {
-            Alerts.clearAll();
-            next();
-        });
-    }
+  if (typeof Iron !== 'undefined' && typeof Router !== 'undefined' && Alerts.clearRouter) {
+    Router.onBeforeAction(function () {
+      Alerts.clearAll();
+      this.next();
+    });
+  }
+  if (typeof FlowRouter !== 'undefined' && Alerts.clearRouter) {
+    FlowRouter.middleware(function (path, next) {
+      Alerts.clearAll();
+      next();
+    });
+  }
 });

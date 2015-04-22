@@ -9,7 +9,6 @@
 <template name="bootstrapAlert"> 
   <div class="bootstrap-alert alert alert-{{type}} {{#if options.dismissable}}alert-dismissable{{/if}} hide bs-alert-{{options.position}} {{options.classes}}">
     {{#if options.dismissable}}
-    <!--suppress CheckDtdReferences -->
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
       <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
     </button>

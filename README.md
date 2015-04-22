@@ -6,15 +6,9 @@ Display alerts using bootstrap 3 styling and Halflings icons
 
 
 http://bootstrap-alerts-voidale.meteor.com
-````
-Play around on demo:
-show alerts:
-Alerts.success('test'); <-- browser console
-over write options for test:
-Alerts.Options.autoHide = false; etc...
-````
 
-# Dependencies
+
+# 1. Dependencies
 
 the latest bootstrap package
 
@@ -22,10 +16,17 @@ the latest bootstrap package
 meteor add twbs:bootstrap
 ```
 
-# Installation
+# 2. Installation
 ```
 meteor add voidale:bootstrap-alerts
 ```
+
+# 3. Add Template To Hold Alerts
+
+```
+ {{> bootstrapAlerts}}
+```
+
 # Options 
 
 ```
@@ -87,12 +88,6 @@ options: overwrite options for alert.
 ```
   Alerts.clearAll()
   Alerts.clear(id)
-```
-
-# Alerts template
-
-```
- {{> bootstrapAlerts}}
 ```
 
 # License
